@@ -64,7 +64,7 @@ open class Validator {
     
     /**
     This method is used to validate a single field registered to Validator. If validation is unsuccessful,
-    field gets added to errors dictionary.
+    field gets added to errors dictionary; if successful, the last error is removed.
     
     - parameter field: Holds validator field data.
     - returns: No return value.
@@ -79,6 +79,7 @@ open class Validator {
                 callback(error)
             }
             else {
+                self.errors.removeValueForKey(field)
                 if let transform = self.successStyleTransform {
                     transform(fieldRule)
                 }
