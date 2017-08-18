@@ -45,7 +45,7 @@ public class ValidationRule {
      Used to live-validate the field against its validation rules.
      - returns: `ValidationError` object if at least one error is found. Nil is returned if there are no validation errors.
      */
-    public func validateField(changingCharactersInRange range: NSRange, replacementString string: String) -> ValidationError? {
+    public func validateField(changingCharactersIn range: NSRange, replacementString string: String) -> ValidationError? {
         let originalText = self.field.validationText as NSString
         return self.validateText(originalText.replacingCharacters(in: range, with: string))
     }

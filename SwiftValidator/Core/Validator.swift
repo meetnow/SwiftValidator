@@ -100,9 +100,9 @@ open class Validator {
     - parameter field: Holds validator field.
     - returns: No return value.
     */
-    public func validateField(_ field: ValidatableField, changingCharactersInRange range: NSRange, replacementString string: String, callback: (_ error: ValidationError?) -> Void) {
+    public func validateField(_ field: ValidatableField, changingCharactersIn range: NSRange, replacementString string: String, callback: (_ error: ValidationError?) -> Void) {
         if let fieldRule = self.validations[field] {
-            if let error = fieldRule.validateField(changingCharactersInRange: range, replacementString: string) {
+            if let error = fieldRule.validateField(changingCharactersIn: range, replacementString: string) {
                 self.errors[field] = error
                 if let transform = self.errorStyleTransform {
                     transform(error)
@@ -110,6 +110,7 @@ open class Validator {
                 callback(error)
             }
             else {
+                self.errors.removeValueForKey(field)
                 if let transform = self.successStyleTransform {
                     transform(fieldRule)
                 }
