@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SwiftValidator"
-  s.version      = "4.1.0"
+  s.version      = "4.1.1"
   s.summary      = "A UITextField Validation library for Swift"
   s.homepage     = "https://github.com/meetnow/SwiftValidator"
   s.screenshots  = "https://raw.githubusercontent.com/meetnow/SwiftValidator/master/swift-validator-v2.gif"
